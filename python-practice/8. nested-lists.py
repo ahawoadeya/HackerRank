@@ -1,4 +1,4 @@
-number_of_students = int(input())
+number_of_students = int(input("Enter the total number of students: "))
 students_list = []
 all_grades = []
 low_score_students = []
@@ -17,8 +17,8 @@ def second_smallest(numbers_list):
 
 if (2 <= number_of_students <= 5):
     for limit in range(0, number_of_students):
-        student_name = input()
-        student_grade = input()
+        student_name = input("Student Name: ")
+        student_grade = input("Student grade: ")
         try:
             student_grade = int(student_grade)
         except ValueError:
