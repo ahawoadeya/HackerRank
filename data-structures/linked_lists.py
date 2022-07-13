@@ -15,6 +15,10 @@ Iterative Method
     - Move prev and curr one step forward
         prev = curr
         curr = next
+
+references;-
+1. https://www.geeksforgeeks.org/reverse-a-linked-list/
+2. https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=linked-lists
 """
 
 
