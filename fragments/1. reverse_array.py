@@ -3,7 +3,7 @@ arr = []
 # specify array length
 arr_count = int(input("Enter number of array elements: ").strip())
 
-# declare array variable
+# populate array
 for values in enumerate(range(0, arr_count)):
     arr_ele = int((input("Enter element {0}: ".format(values[0]))))
     arr.append(arr_ele)

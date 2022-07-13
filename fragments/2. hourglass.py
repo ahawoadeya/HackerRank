@@ -12,11 +12,16 @@ def hourglass_sum(arr):
     return max(sum)
 
 
-arr = []
+lst = [52,58,75,42,69,36]
 
-for _ in range(6):
-    arr.append(list(map(int, input().rstrip().split())))
+# for _ in range(6):
+#     arr.append(list(map(int, input().rstrip().split())))
 
-result = hourglass_sum(arr)
+# populate array
+# for values in enumerate(range(0, 6)):
+#     arr_ele = int((input("Enter element {0}: ".format(values[0]))))
+#     lst.append(arr_ele)
+
+result = hourglass_sum(lst)
 
 print(result)
