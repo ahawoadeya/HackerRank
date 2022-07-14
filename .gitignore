@@ -6,6 +6,7 @@ README.md
 /.pnp
 .pnp.js
 /.vscode
+*clean.py
 
 # testing
 /coverage
