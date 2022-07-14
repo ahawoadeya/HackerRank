@@ -95,3 +95,11 @@ if __name__ == '__main__':
 
     print("Linked list after insertion of {0} at position {1}: ".format(data_to_insert, POSITION_INSERTED_AT), end='')
     print_list(new_head)
+
+    # insertion at the end of the linked list
+    data_to_insert = int(input("Enter integer to insert at the end: ").strip())
+    POSITION_INSERTED_AT = 7
+    new_head = insert_at_pos(new_head, POSITION_INSERTED_AT, data_to_insert)
+
+    print("Linked list after insertion of {0} at position {1}: ".format(data_to_insert, POSITION_INSERTED_AT), end='')
+    print_list(new_head)
