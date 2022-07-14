@@ -72,18 +72,26 @@ def print_list(head_node):
 # Driver Code
 if __name__ == '__main__':
     # creating the list
-    head = get_node(17)
-    head.next_node = get_node(55)
-    head.next_node.next_node = get_node(6)
-    head.next_node.next_node.next_node = get_node(110)
+    new_head = get_node(17)
+    new_head.next_node = get_node(55)
+    new_head.next_node.next_node = get_node(6)
+    new_head.next_node.next_node.next_node = get_node(110)
 
     print("Linked list before insertion:", end='')
-    print_list(head)
+    print_list(new_head)
 
     # insert node to linked list
     data_to_insert = int(input("Enter integer to insert: ").strip())
     position_inserted_at = int(input("Enter position to insert at: ").strip())
-    head_after_insertion = insert_at_pos(head, position_inserted_at, data_to_insert)
+    new_head = insert_at_pos(new_head, position_inserted_at, data_to_insert)
 
     print("Linked list after insertion of {0} at position {1}: ".format(data_to_insert, position_inserted_at), end='')
-    print_list(head_after_insertion)
+    print_list(new_head)
+
+    # front of the linked list
+    data_to_insert = int(input("Enter integer to insert at the beginning: ").strip())
+    POSITION_INSERTED_AT = 1 # beginning of list is by default 1 by count, not index
+    new_head = insert_at_pos(new_head, POSITION_INSERTED_AT, data_to_insert)
+
+    print("Linked list after insertion of {0} at position {1}: ".format(data_to_insert, POSITION_INSERTED_AT), end='')
+    print_list(new_head)
