@@ -72,10 +72,18 @@ def print_list(head_node):
 # Driver Code
 if __name__ == '__main__':
     # creating the list
-    head = get_node(3)
-    head.next_node = get_node(5)
-    head.next_node.next_node = get_node(8)
-    head.next_node.next_node.next_node = get_node(10)
+    head = get_node(17)
+    head.next_node = get_node(55)
+    head.next_node.next_node = get_node(6)
+    head.next_node.next_node.next_node = get_node(110)
 
     print("Linked list before insertion:", end='')
     print_list(head)
+
+    # insert node to linked list
+    data_to_insert = int(input("Enter integer to insert: ").strip())
+    position_inserted_at = int(input("Enter position to insert at: ").strip())
+    head_after_insertion = insert_at_pos(head, position_inserted_at, data_to_insert)
+
+    print("Linked list after insertion of {0} at position {1}: ".format(data_to_insert, position_inserted_at), end='')
+    print_list(head_after_insertion)
