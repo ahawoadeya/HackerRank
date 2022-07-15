@@ -1,5 +1,17 @@
 """
 Approach to deleting a node in a linked list
+
+1. Delete from beginning.
+    - Point head to the next node
+    head = head->next
+
+2. Delete from the end
+    - Point head to the previous element, i.e, last second element
+    change next pointer to null
+
+3. Delete from the middle
+    - Traverse to element before the element to be deleted
+    - Change next pointer to exclude the node from the chain 
 """
 
 class Node:
