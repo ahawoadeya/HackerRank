@@ -11,7 +11,13 @@ Approach to deleting a node in a linked list
 
 3. Delete from the middle
     - Traverse to element before the element to be deleted
-    - Change next pointer to exclude the node from the chain 
+    - Change next pointer to exclude the node from the chain
+
+steps;- 
+
+- Find the previous node of the node to be deleted.
+- Change the next of the previous node.
+- Free memory for the node to be deleted.
 """
 
 class Node:
