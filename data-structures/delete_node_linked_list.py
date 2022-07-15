@@ -13,7 +13,7 @@ Approach to deleting a node in a linked list
     - Traverse to element before the element to be deleted
     - Change next pointer to exclude the node from the chain
 
-steps;- 
+steps;-
 
 - Find the previous node of the node to be deleted.
 - Change the next of the previous node.
@@ -40,26 +40,43 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
-    def delete_node(self, head_node, position):
+    def delete_node(self, key):
         """ function to delete a node at a specific position"""
 
-        head = head_node
+        # store head node as temporary
+        temp = self.head
 
-        if position < 0:
-            print("Invalid position")
+        # if head node itself holds the key to be deleted
+        if temp is not None:
+            if temp.data == key:
+                self.head = temp.next
+                temp = None
+                return
 
-        if position == 0:
-            head = head.next
+        # search for key to be deleted, keep track of the previous node
+        # as we need to change prev.next
+        while temp is not None:
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
 
-        return head
+        # if key was not present in llist
+        if temp is None:
+            return
+
+        # unlink the node from llist
+        prev.next = temp.next
+
+        temp = None
 
 
-    def print_list(self, head_node):
+    def print_list(self):
         """print list contents"""
-        while head_node is not None:
-            print(' ' + str(head_node.data), end='')
-            head_node = head_node.next
-        print()
+        temp = self.head
+        while temp:
+            print("{0}".format(temp.data)),
+            temp = temp.next
 
 # driver code
 if __name__ == '__main__':
@@ -70,11 +87,11 @@ if __name__ == '__main__':
         llist_ele = int(input("Enter llist integer {0}: ".format(values[0])).strip())
         llist.push(llist_ele)
 
-    print("Linked list before deleting:", end='')
-    llist.print_list(llist.head)
+    print("Linked list before deleting:")
+    llist.print_list()
 
-    position_to_delete = int(input("Enter position to delete: ").strip())
-    new_head = llist.delete_node(llist.head, position_to_delete)
+    key_to_delete = int(input("Enter key to delete: ").strip())
+    llist.delete_node(key_to_delete)
 
-    print("Linked list after deleting at position {0}: ".format(position_to_delete))
-    llist.print_list(new_head)
+    print("Linked list after deleting at position {0}: ".format(key_to_delete))
+    llist.print_list()
