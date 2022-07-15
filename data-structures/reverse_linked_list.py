@@ -44,11 +44,11 @@ class LinkedList:
         current = self.head
 
         # iteration
-        while(current is not None):
-            next = current.next
+        while current is not None:
+            next_ = current.next
             current.next = prev
             prev = current
-            current = next
+            current = next_
 
         self.head = prev
 
@@ -61,7 +61,7 @@ class LinkedList:
     def print_list(self):
         """utility function to print the linked list"""
         temp = self.head
-        while(temp):
+        while temp:
             print(temp.data)
             temp = temp.next
 
