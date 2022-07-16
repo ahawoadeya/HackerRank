@@ -33,12 +33,24 @@ class LinkedList:
     # initialize head
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def push(self, new_data):
         """insert new node at the beginning"""
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
+
+    def insert_node(self, node_data):
+        """insert node successively"""
+        node = Node(node_data)
+
+        if not self.head:
+            self.head = node
+        else:
+            self.tail.next = node
+        
+        self.tail = node
 
     def delete_node(self, key):
         """ function to delete a node at a specific position"""
@@ -70,6 +82,28 @@ class LinkedList:
 
         temp = None
 
+    def delete_node_pos(self, position):
+        """Given a reference to the head of a list
+            and a position, delete the node at a given position
+        """
+        if self.head is None:
+            return None
+        if position == 0:
+            self.head = self.head.next
+            return self.head
+        index = 0
+        current = self.head
+        prev = self.head
+        temp = self.head
+        while current is not None:
+            if index == position:
+                temp = current.next
+                break
+            prev = current
+            current = current.next
+            index += 1
+        prev.next = temp
+
 
     def print_list(self):
         """print list contents"""
@@ -85,13 +119,13 @@ if __name__ == '__main__':
     llist_elements = int(input("Enter number of elements in the linked list: ").strip())
     for values in enumerate(range(0, llist_elements)):
         llist_ele = int(input("Enter llist integer {0}: ".format(values[0])).strip())
-        llist.push(llist_ele)
+        llist.insert_node(llist_ele)
 
     print("Linked list before deleting:")
     llist.print_list()
 
     key_to_delete = int(input("Enter key to delete: ").strip())
-    llist.delete_node(key_to_delete)
+    llist.delete_node_pos(key_to_delete)
 
     print("Linked list after deleting at position {0}: ".format(key_to_delete))
     llist.print_list()
