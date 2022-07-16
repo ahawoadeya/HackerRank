@@ -34,6 +34,18 @@ class SinglyLinkedList:
 
         self.tail = node
 
+def get_count(llist_head):
+    """get the number of nodes in llist"""
+    temp = llist_head
+    count_ = 0
+
+    # loop while end of llist
+    while temp:
+        count_ += 1
+        temp = temp.next
+
+    return count_
+
 def delete_node(llist_head, position):
     """
     Given a reference to the head of a list
@@ -44,11 +56,11 @@ def delete_node(llist_head, position):
     if head is None:
         return None
 
-    if position < 0:
+    if position < 0 or position > get_count(llist_head) - 1:
         print("Invalid position")
         return head
 
-    # deleting head node
+    # if deleting head node
     if position == 0:
         head = head.next
         return head
@@ -90,7 +102,12 @@ if __name__ == "__main__":
     print_llist(llist.head)
 
     position_to_delete = int(input("Enter integer position to delete: ").strip())
+    LLIST_COUNT = get_count(llist.head)
+
     new_head = delete_node(llist.head, position_to_delete)
 
-    print("Llist after deleting at position {0}".format(position_to_delete))
-    print_llist(new_head)
+    if position_to_delete > LLIST_COUNT - 1:
+        print_llist(llist.head)
+    else:
+        print("Llist after deleting at position {0}".format(position_to_delete))
+        print_llist(new_head)
