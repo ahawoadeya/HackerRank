@@ -93,4 +93,4 @@ if __name__ == "__main__":
     new_head = delete_node(llist.head, position_to_delete)
 
     print("Llist after deleting at position {0}".format(position_to_delete))
-    print_llist(new_head)    
+    print_llist(new_head)
