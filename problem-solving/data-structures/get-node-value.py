@@ -32,15 +32,30 @@ class SinglyLinkedList:
 
         self.tail = node
 
+
+def get_llist_count(head_node):
+    """get total number of nodes in a llist"""
+    temp = head_node
+    count_ = 0
+
+    # loop while end of llist
+    while temp:
+        count_ += 1
+        temp = temp.next
+
+    return count_
+
 def get_node_value(head_node, node_position):
     """function to return the node value"""
+    print(get_llist_count(head_node))
     index = 0
+    temp = head_node
 
-    while head_node:
+    while temp:
         if index == node_position:
-            return head_node.data
+            return temp.data
 
-        head_node = head_node.next
+        temp = temp.next
         index += 1
 
 def print_llist(llist_head):
