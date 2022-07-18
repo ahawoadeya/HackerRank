@@ -33,13 +33,31 @@ class SinglyLinkedList:
         self.tail = node
 
 
-def get_node_value(head_node, node_position):
+def reverse_llist(llist_head):
+    """function to reverse the llist"""
+
+    prev = None
+    current = llist_head
+
+    # iteration
+    while current:
+        next_ = current.next
+        current.next = prev
+        prev = current
+        current = next_
+
+    llist_head = prev
+
+    return llist_head
+
+def get_node_value(head_node, position_from_tail):
     """function to return the node value"""
+    reversed_head = reverse_llist(head_node)
     index = 0
-    temp = head_node
+    temp = reversed_head
 
     while temp:
-        if index == node_position:
+        if index == position_from_tail:
             return temp.data
 
         temp = temp.next
