@@ -31,6 +31,23 @@ class SinglyLinkedList:
 
         self.tail = node
 
+def reverse_llist(llist_head):
+    """function to reverse the llist"""
+
+    prev = None
+    current = llist_head
+
+    # iteration
+    while current:
+        next_ = current.next
+        current.next = prev
+        prev = current
+        current = next_
+
+    llist_head = prev
+
+    return llist_head
+
 def print_llist(head_node):
     """print llist contents"""
     while head_node:
@@ -47,3 +64,7 @@ if __name__ == "__main__":
 
     print("Llist before reversal:")
     print_llist(llist.head)
+
+    reversed_head = reverse_llist(llist.head)
+    print("Reversed llist:")
+    print_llist(reversed_head)
