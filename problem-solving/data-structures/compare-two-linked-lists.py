@@ -51,7 +51,7 @@ def compare_lists(llist1, llist2):
     llist_b = llist2
     truthy = None
 
-    while (llist_a is not None and llist_b is not None):
+    while llist_a is not None and llist_b is not None:
         if llist_a.data != llist_b.data:
             truthy = False
             break
